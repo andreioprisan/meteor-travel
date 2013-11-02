@@ -5,7 +5,7 @@ Meteor.publish("Attractions", function () {
 Attractions.allow({
   insert: function (userId, doc) {
     // the user must be logged in, and the document must be owned by the user
-    return (userId && doc.owner === userId);
+    return true;
   },
   update: function (userId, doc, fields, modifier) {
     // can only change your own documents
@@ -29,7 +29,7 @@ Meteor.publish("Trips", function () {
 Trips.allow({
   insert: function (userId, doc) {
     // the user must be logged in, and the document must be owned by the user
-    return (userId && doc.owner === userId);
+    return true;
   },
   update: function (userId, doc, fields, modifier) {
     // can only change your own documents
