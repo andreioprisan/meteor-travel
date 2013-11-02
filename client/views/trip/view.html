@@ -1,0 +1,147 @@
+<template name="addStopOnThisTrip">
+	{{> addStopOnThisTripModal}}
+    <div class="col-lg-2 col-md-2">
+        <div class="">
+          <p><button id="addStopOnThisTrip" class="btn btn-default btn-large" data-toggle="modal" data-target="#addStopOnTripModal">Add a Stop on this Trip</button></p>
+        </div>
+    </div>
+    <div class="col-lg-1 col-md-1">
+		<span class="badge">or</span>
+	</div>	
+</template>
+
+<template name="showPotentialAttractionsResults">
+	{{#if potentialAttractionNames}}
+	<div style="min-height:210px">
+		<div class="list-group">
+			{{#each potentialAttractionNames}}
+				{{> potentialAttractionName}}
+			{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+</template>
+
+<template name="potentialAttractionName">
+  	<a href="#" class="list-group-item addAttraction" id="{{id}}" data-reference="{{reference}}">{{name}}</a>		
+</template>
+
+<template name="addStopOnThisTripModal">
+	<div class="modal fade" id="addStopOnTripModal">
+	    <div class="modal-dialog">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	          <h4 class="modal-title">Add a Stop on this Trip</h4>
+	        </div>
+	        <div class="modal-body">
+	          <input type="text" class="form-control" style="margin-bottom:15px;" autofocus="" id="potentialAttractionInput" placeholder="Search for any destination in {{city}}">
+			  {{> showPotentialAttractionsResults}}
+
+	  			<div id="potentialAttractionLoading" class="alert alert-info">Please wait while add this stop to the trip</div>
+			  	  
+	        </div>
+	      </div>
+	    </div>
+	</div>
+</template>
+
+<template name="askFriends">
+    <div class="col-lg-6 col-md-6">
+        <div class="">
+          <p>
+			  <input type="text" class="form-control" style="width: 150px; display: inline-block;" placeholder="Email Address" id="friendEmailAddress">
+			  <button id="askFriendButton" class="btn btn-default btn-large"><span class="glyphicon glyphicon-envelope"> </span> Ask a Friend for Recommendations</button></p>
+        </div>
+    </div>
+</template>
+
+<template name="tripView">
+	<div style="padding: 0px 20px 0px 20px">
+    {{#if tripExists}}
+        {{#with trip}}
+		<div class="row">
+			<div class="col-lg-10">
+				<h2>{{author}}'s Trip to {{city}}</h2>
+		        <div class="row">            
+		            <div class="col-lg-8 col-8">
+		                <div class="bs-callout">
+		                  <p>created on {{created}}</p>
+		                </div>				
+		                <div class="bs-callout">
+		                    {{#if anonymous}}
+		                    <span class="badge">anonymous</span>
+		                    {{/if}}
+
+		                    {{#if private}}
+		                    <span class="badge">private</span>
+							{{else}}
+		                    <span class="badge">public</span>
+		                    {{/if}}
+		                    </p>
+		                </div>
+		            </div>
+		        </div>
+		        <br>
+		        <div class="row">    
+					{{> addStopOnThisTrip}}  
+					{{> askFriends}} 
+		        </div>
+			</div>
+			<div class="col-lg-2">
+				<img class="thumbnail"  src="http://maps.googleapis.com/maps/api/staticmap?center={{lat}},{{lng}}&zoom=11&size=200x200&sensor=false">
+			</div>
+		</div>
+        <br>
+		
+        {{/with}}
+
+        {{#if attractionsExist}}
+		<div class="row">
+            {{#each attractions}}
+			<div class="col-sm-6 col-md-4">
+			    <div class="thumbnail">
+			      <div class="caption">
+			        <h3>{{name}}</h3>
+					<iframe src="https://{{photo}}" marginheight="0" align="top" scrolling="No" frameborder="0" width="210" height="210"></iframe>
+					<img src="{{icon}}">
+			        <p>{{address}}</p>
+			        <p>{{phone}}</p>
+					{{#if website}}
+			        <p><a href="{{website}}">Official Site</a></p>
+					{{/if}}
+					{{#if url}}
+			        <p><a href="{{url}}">Reviews on Google+</a></p>
+					{{/if}}
+		                {{#if isAdministrator}}
+		                    <button class="btn btn-danger btn-small pull-right deleteAttraction"><i class="icon-remove"></i></button>
+		  			  {{/if}}
+					
+					</p>
+					
+			      </div>
+			    </div>
+			  </div>
+            {{/each}}
+
+		</div>
+        {{else}}
+        <br>        
+        <br>        
+        <hr>        
+        <div class="alert alert-info">
+            No stop have been added yet to this trip. Be the first to suggest a stop!
+        </div>
+        {{/if}}
+
+    {{else}}
+        <div class="page-header">
+            <h1>hmm, let's see what you've got there
+                <hr>
+                <small>we dispatched the elves to get your trip details, hold tight</small>
+            </h1>    
+        </div>
+    {{/if}}
+	</div>
+</template>
+

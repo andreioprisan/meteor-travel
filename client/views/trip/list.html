@@ -1,0 +1,45 @@
+<template name="tripList">
+    <div class="page-header" style="margin-left:20px">
+        <h1>trips <small>all in one place</small>
+        </h1>
+    </div>
+    <div class="hero-unit col-lg-12">
+        {{#if hasTripsList}}
+        <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>URL</th>
+                <th>Map</th>
+                <th>Created</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+
+            {{#each tripNames}}
+            {{> tripName}}
+            {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+        <br>
+        <div class="alert alert-info">
+            No trips have been created yet. Add one by going to the homepage
+        </div>
+        {{/if}}
+    </div>
+</template>
+
+<template name="tripName">
+    <tr>
+        <td>{{city}}</td>
+        <td><a href="/trip/{{slug}}">/trip/{{slug}}</a></td>
+        <td><a href="{{map}}">Directions</a></td>
+        <td>{{created}}</td>
+        <td width="5%">
+          <button class="btn btn-danger btn-small pull-right deleteEvent"><i class="icon-remove"></i></button>
+        </td>
+    </tr>
+</template>
+	

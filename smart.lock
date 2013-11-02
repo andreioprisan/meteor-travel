@@ -1,0 +1,74 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "router": {},
+      "font-awesome": {},
+      "npm": {},
+      "HTML5-History-API": {},
+      "spiderable-404": {},
+      "external-file-loader": {},
+      "momentjs": {},
+      "bootstrap-3": {},
+      "accounts-ui-bootstrap-3": {},
+      "googlemaps": {}
+    },
+    "packages": {
+      "router": {
+        "git": "https://github.com/tmeasday/meteor-router.git",
+        "tag": "v0.5.4.1",
+        "commit": "d00e380dda2184b70e909fc4a0fb5358d602c586"
+      },
+      "font-awesome": {
+        "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
+        "tag": "v3.2.1",
+        "commit": "38bdfff72dfb8857b272f9a9b056045d6a015489"
+      },
+      "npm": {
+        "git": "https://github.com/arunoda/meteor-npm.git",
+        "tag": "v0.2.2",
+        "commit": "ad83acff83385d5ea05997c8bbc2d7493ba4c04e"
+      },
+      "HTML5-History-API": {
+        "git": "https://github.com/tmeasday/meteor-HTML5-History-API.git",
+        "tag": "v4.0.0",
+        "commit": "dc4965f1424cfca625ec3fbea17eace03f8e32c5"
+      },
+      "spiderable-404": {
+        "git": "https://github.com/wojas/spiderable-404.git",
+        "tag": "v0.6.6.1",
+        "commit": "04013254e4cf1e6d38ac5e78d48a33e5ddf554b2"
+      },
+      "external-file-loader": {
+        "git": "https://github.com/davidd8/meteor-external-file-loader.git",
+        "tag": "v0.1.4",
+        "commit": "352694a7cf906b8241161c2fd1435161c1d5409f"
+      },
+      "momentjs": {
+        "git": "https://github.com/crapthings/meteor-momentjs.git",
+        "tag": "v2.1.0.2",
+        "commit": "59a762e297082eea8b8cae00374c2b7ac6f89529"
+      },
+      "bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
+        "tag": "v0.3.5",
+        "commit": "47996f67f3987c9f82117394effcbe1586a4fe29"
+      },
+      "accounts-ui-bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
+        "tag": "v0.2.3",
+        "commit": "c6aac7a331e457abd457a6f3ed030ac1411b220c"
+      },
+      "googlemaps": {
+        "git": "https://github.com/drewjw81/meteor-googlemaps.git",
+        "tag": "v0.0.2",
+        "commit": "da8785c82cfd7de0111f898ef10728e7ed24e361"
+      },
+      "page-js-ie-support": {
+        "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",
+        "tag": "v1.3.5",
+        "commit": "b99ed8380aefd10b2afc8f18d9eed4dd0d8ea9cb"
+      }
+    }
+  }
+}

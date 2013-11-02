@@ -1,0 +1,33 @@
+<template name="publicTrips">
+    {{#each trips}}
+		<div class="row" style="margin-left: 10px;">
+			<div class="col-lg-10">
+				<h2><a href="/trip/{{slug}}">{{author}}'s Trip to {{city}}</a></h2>
+		        <div class="row">            
+		            <div class="col-lg-8 col-8">
+		                <div class="bs-callout">
+		                  <p>created on {{created}}</p>
+		                </div>				
+		                <div class="bs-callout">
+		                    {{#if anonymous}}
+		                    <span class="badge">anonymous</span>
+		                    {{/if}}
+
+		                    {{#if private}}
+		                    <span class="badge">private</span>
+							{{else}}
+		                    <span class="badge">public</span>
+		                    {{/if}}
+		                    </p>
+		                </div>
+		            </div>
+		        </div>
+			</div>
+			<div class="col-lg-2">
+				<img class="thumbnail"  src="http://maps.googleapis.com/maps/api/staticmap?center={{lat}},{{lng}}&zoom=11&size=200x200&sensor=false">
+			</div>
+		</div>
+        <br>
+    {{/each}}
+</template>
+

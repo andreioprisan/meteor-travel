@@ -1,0 +1,14 @@
+{
+  "packages": {
+    "router": {},
+    "font-awesome": {},
+    "npm": {},
+    "HTML5-History-API": {},
+    "spiderable-404": {},
+    "external-file-loader": {},
+    "momentjs": {},
+    "bootstrap-3": {},
+    "accounts-ui-bootstrap-3": {},
+    "googlemaps": {}
+  }
+}

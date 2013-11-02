@@ -1,0 +1,25 @@
+<template name="home">
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-xs-12" style="padding: 0px 50px 0px 50px">
+			<p class="lead">Pick a city where you want to travel.</p>
+			<input type="text" autofocus="autofocus" class="form-control" id="placeSearch" placeholder="Enter a location" autocomplete="off">
+			{{#if placeNames}}
+				<div class="list-group">
+					{{#each placeNames}}
+						{{> placeName}}
+					{{/each}}
+				</ul>
+			{{/if}}
+
+			<div id="cityLoading" class="alert alert-info">Please wait while create a new trip for you...</div>
+		</div>
+	</div>    
+	<br>
+	<center>
+		<img src="//maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white2.png">
+	</center>
+</template>
+
+<template name="placeName">
+  	<a href="#" class="list-group-item placeCity" id="{{id}}" data-reference="{{reference}}">{{name}}</a>	
+</template>
