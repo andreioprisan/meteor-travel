@@ -110,6 +110,6 @@ Meteor.methods({
         Attractions.remove(id);
 	},
 	deleteTrip: function (id) {
-        Trip.remove(id);
+        Trips.remove(id);
 	},
 });

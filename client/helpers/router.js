@@ -12,6 +12,8 @@ Meteor.Router.add({
             if(error) {
                 alert("Could not logout!")
             } else {
+				Session.set('thisUserName','Anonymous User')
+				Session.set('thisUserId',false)				
                 Meteor.Router.to("/");        
             }
 

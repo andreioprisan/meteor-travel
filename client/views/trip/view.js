@@ -55,14 +55,16 @@ Template.potentialAttractionName.events({
 					{
 						stopData.photo = imgurl.data;
 						Attractions.insert(stopData);
-				        Meteor.Router.to("/trip/"+Session.get('slug'));						
 						$('#addStopOnTripModal').modal('toggle');
-					});
-				
+						Session.set('attractions', false);						
+				        Meteor.Router.to("/trip/"+Session.get('slug'));						
+					});				
 			} else {
 				stopData.photo = false;
 				Attractions.insert(stopData);				
 				$('#addStopOnTripModal').modal('toggle');
+				Session.set('attractions', false);				
+		        Meteor.Router.to("/trip/"+Session.get('slug'));						
 			}
 		});
 		

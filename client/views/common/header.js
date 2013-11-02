@@ -1,7 +1,11 @@
 Template.loggedin_header.helpers({
     name: function() {
         var profile = Meteor.user().profile;
-        return profile.name;
+		if (profile && profile.name) {
+	        return profile.name;			
+		} else {
+			return Meteor.user().emails[0].address;
+		}
     },
 
     id: function() {
@@ -16,7 +20,7 @@ Template.header.helpers({
             var profile = Meteor.user().profile;
             return profile.name;
         } else {
-            return null;
+			return Meteor.user().emails[0].address;
         }
     },
     _id: function() {

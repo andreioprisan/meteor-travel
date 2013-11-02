@@ -5,6 +5,8 @@ Template.tripList.user = function() {
 Template.tripList.events({
     "click .deleteTrip": function(event){
         event.preventDefault();    
+		console.log('deleteTrip '+this._id)
+		
         Meteor.call('deleteTrip', this._id, function(error, res) {
         });
     },

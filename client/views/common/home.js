@@ -1,4 +1,5 @@
 Session.set('placesNames',false)
+Session.set('attractions', false);						
 Session.set('newTripId',Random.hexString(32));
 Session.set('tripPrivate',false)
 Session.set('tripAnonymous',true)
@@ -40,10 +41,15 @@ Template.home.events({
 		Session.set('tripCityRef',event.srcElement.dataset.reference);
 		if (Meteor.userId()) {
 			Session.set('thisUserId',Meteor.userId())
-			if (Meteor.user().profile && Meteor.user().profile.name != '') {
-				Session.set('thisUserName',Meteor.user().profile.name);
-				Session.set('tripAnonymous',false)				
+		    var name = null;
+			if (Meteor.user().profile &&  Meteor.user().profile.name) {
+		        name = Meteor.user().profile.name;			
+			} else {
+				name = Meteor.user().emails[0].address;
 			}
+
+			Session.set('thisUserName', name);
+			Session.set('tripAnonymous',false)				
 		}
 		
 		var tripData = {
@@ -66,6 +72,8 @@ Template.home.events({
 			Session.set('tripCityLng',tripData.lng)
 			
 			Trips.insert(tripData);
+			Session.set('placesNames', false);
+			
 	        Meteor.Router.to("/trip/"+Session.get('newTripId'));
 		});
 	}
