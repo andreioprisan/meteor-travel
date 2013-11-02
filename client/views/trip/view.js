@@ -128,7 +128,6 @@ Template.addStopOnThisTripModal.events({
 					Session.set('attractions', false);
 				} else {
 					Session.set('attractions', attractionsNames.data);
-					console.log(attractionsNames.data);
 				}
 			})
 		} else {
